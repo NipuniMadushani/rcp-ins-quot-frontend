@@ -1,0 +1,90 @@
+
+<!-- <div style="width: 100%;height: 100%;background-color: green"> -->
+<div class="{{eee}}">
+<div class="container" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
+  <div fxFlex="50%">
+    <mat-card class="main-card" >
+      <mat-card-header>
+        <mat-card-title>
+          <h3>NumberParam Form</h3>
+          <br>
+          
+        </mat-card-title>
+      </mat-card-header>
+
+      <mat-card-content class="load"  >
+        <mat-card >
+          <div>
+              <dynamic-form [pageName]="pageName"  (submit)="submit($event)" >
+              <input type="text" placeholder="AAAA">
+              </dynamic-form>
+              
+          </div>
+      </mat-card>
+        </mat-card-content>
+
+    </mat-card>
+  </div>
+
+
+
+  <div fxFlex="50%">
+    <mat-card class="main-card">
+
+
+        <mat-form-field>
+            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+          </mat-form-field>
+
+        <div class="mat-elevation-z8">
+
+            <table mat-table [dataSource]="dataSource" matSort>
+          
+              <ng-container matColumnDef="numberParamId">
+                <th mat-header-cell *matHeaderCellDef  mat-sort-header> ID </th>
+                <td mat-cell *matCellDef="let element" class="hideId"> {{element.numberParamId}} </td>
+              </ng-container>
+
+             
+              <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef  mat-sort-header> Name </th>
+                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+              </ng-container>
+          
+              
+              <ng-container matColumnDef="sName">
+                <th mat-header-cell *matHeaderCellDef  mat-sort-header> Short Name </th>
+                <td mat-cell *matCellDef="let element"> {{element.sName}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="edit">
+                <th mat-header-cell *matHeaderCellDef >  </th>
+                <td mat-cell *matCellDef="let element;let i = index;" ><button  mat-icon-button id="edit"  (click)="updateSubmit(element)">
+                  <mat-icon  matTooltip="Edit data">edit</mat-icon>
+                </button></td>
+              </ng-container>
+
+
+
+
+              <ng-container matColumnDef="remove">
+                <th mat-header-cell *matHeaderCellDef >  </th>
+                <td mat-cell *matCellDef="let element;let i = index;" ><button  mat-icon-button (click)="deleteSubmit(element)" >
+                  <mat-icon color="warn" matTooltip="Remove data">delete_outline</mat-icon>
+                </button>   </td>
+              </ng-container>
+
+          
+              <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;let i=index"  
+               (dblclick)="setClickRow(row)" [class.alertactive]="i == selectRow"></tr>
+            </table>
+          
+            <mat-paginator #paginator [pageSizeOptions]="[10]" showFirstLastButtons></mat-paginator>
+            
+          </div>
+          
+        </mat-card>
+  </div>
+  </div>
+<!-- </div> -->

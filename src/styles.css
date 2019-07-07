@@ -1,0 +1,31 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.title-fill-background-div{
+    padding: 5px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.image-round{
+    width: 80px;
+    height: 80px;
+    border-radius: 40px;
+}
+.custom-dialog-container .mat-dialog-container {
+    /* add your styles */
+    padding: 0;
+    max-width: 500PX;
+    /* box-shadow: 17px 17px 5px -1px #888888; */
+    box-shadow: 17px 17px 5px -1px #696969;
+}

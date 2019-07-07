@@ -1,0 +1,88 @@
+@media only screen and (min-width: 1500px){
+
+  .main-card{
+    height: 1000px; 
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 0px; 
+    margin-bottom: 0px; 
+    box-shadow: none;
+    
+    }
+
+}
+table {
+  width: 100%;
+  
+  /* margin-bottom: 500px; */
+}
+
+/* mat-card{
+  width:550px;
+  margin-top: 12px;
+} */
+.hideId{
+ display: none;
+}
+.hideId1{
+ display: none;
+} 
+.hidecode{
+ display: none;
+}
+.hidecode1{
+ display: none;
+}
+
+/* add all to styles.css */
+
+
+
+
+mat-card-header{
+margin-top: -23px;
+margin-left: -13px;
+}
+/* .mat-elevation-z8{
+ width: 500px;
+} */
+
+
+.example-container {
+height: 100%;
+width: 100%;
+overflow: auto;
+}
+
+table {
+width: 100%;
+}
+
+td.mat-column-star {
+width: 20px;
+padding-right: 8px;
+}
+
+/* th.mat-column-position, td.mat-column-position {
+padding-left: 8px;
+} */
+
+/* .mat-table-sticky:first-child {
+border-right: 1px solid #e0e0e0;
+}
+
+.mat-table-sticky:last-child {
+border-left: 1px solid #e0e0e0;
+} */
+
+
+
+
+
+
+
+
+
+
+
+  

@@ -1,0 +1,74 @@
+#example1 {
+  border: 0.5px;
+  border-radius: 4px;
+  border-color: rgb(185, 185, 185);
+  box-shadow: 0px 2px 1px -1px #888888;
+}
+
+
+.example1 {
+  border: 0.5px;
+  border-radius: 4px;
+  border-color: rgb(185, 185, 185);
+  padding: 8px;
+  box-shadow: 7px 7px 3px -1px #888888;
+  margin-top: 15px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.noclass {
+  padding: 0;
+}
+.navcolorsuccess {
+/* background-color: rgb(3, 230, 3); */
+background-color: #37F034;
+/* background-color: rgb(0, 255, 0); */
+padding: 0;
+min-width: 500px;
+}
+.navcolorerror {
+background-color: #EA3636;
+/* background-color: rgb(240, 0, 0); */
+padding: 0;
+min-width: 500px;
+
+}
+.btncolsuccess {
+background-color: rgb(0, 119, 0);
+color: white;
+border-color: transparent;
+border-radius: 60px;
+width: 75px;
+height: 38px;
+font-size: 20px;
+margin-bottom: 15px;
+}
+.btncolerror {
+background-color: rgba(179, 0, 0, 0.938);
+color: white;
+border-color: transparent;
+border-radius: 60px;
+width: 70px;
+height: 38px;
+font-size: 20px;
+margin-bottom: 15px;
+}
+
+.delbtnnone {
+width: 0px;
+height: 0px;
+background-color: transparent;
+}
+.delbtnhas {
+
+width: 85px;
+height: 40px;
+}
+.alignleft {
+margin-left: 180px;
+}
+.aligncenter {
+margin-left: 210px;
+
+}

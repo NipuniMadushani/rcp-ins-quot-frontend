@@ -1,0 +1,336 @@
+<mat-card>
+  <div class="container" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
+    <div fxFlex="50%">
+      <mat-card class="main-card" style="height: 98%;">
+        <mat-card-header>
+          <mat-card-title>
+            <h3>product Form</h3>
+          </mat-card-title>
+        </mat-card-header>
+  
+        <mat-card-content class="load">
+          <mat-card>
+            <div >
+                <dynamic-form [pageName]="pageName" (submit)="submit($event)">
+                </dynamic-form>
+            </div>
+        </mat-card>
+          </mat-card-content>
+  
+      </mat-card>
+    </div>
+  <!-- ////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+  <div fxFlex="50%">
+    <mat-card class="main-card">
+  
+      <mat-card-header>
+        <mat-card-title>
+          <!-- <h3>Hsf</h3> -->
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content style="margin-top:54px; height:auto">
+  
+          <mat-card class="example-card">
+             
+            
+              <mat-card-content>
+                
+                <div class="mat-elevation-z8">
+                  <table mat-table [dataSource]="dataSource" style="padding: 10px">
+           <!-- <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="padding: 10px"> -->
+    
+                <!-- Checkbox Column -->
+                <!--<ng-container matColumnDef="select">
+                  <th mat-header-cell *matHeaderCellDef>
+                    <mat-checkbox (change)="$event ? masterToggle() : null" [checked]="selection.hasValue() && isAllSelected()" 
+    
+    [indeterminate]="selection.hasValue() && !isAllSelected()" >
+                    </mat-checkbox>
+                  </th>
+                  <td mat-cell *matCellDef="let row">
+                    <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row) : null" 
+    
+    [checked]="selection.isSelected(row)"  > 
+                    </mat-checkbox>
+                  </td>
+                </ng-container>-->
+  
+                <ng-container matColumnDef="checked">
+                  <th mat-header-cell *matHeaderCellDef>Check</th>
+                  <td mat-cell *matCellDef="let element"> 
+                    <mat-checkbox [checked]="element.isChecked" (click)="selectedItemS(element)"></mat-checkbox>
+                  </td>
+                </ng-container>
+    
+    
+                <!-- id column -->
+                <ng-container matColumnDef="id">
+                  <th mat-header-cell *matHeaderCellDef style="display: none"> id</th>
+                  <td mat-cell *matCellDef="let element" style="display: none"> {{element.id}} </td>
+                </ng-container>
+                <!-- 
+                    code column -->
+    
+                <ng-container matColumnDef="code">
+                  <th mat-header-cell *matHeaderCellDef style="display: none">code </th>
+                  <td mat-cell *matCellDef="let element" style="display: none"> {{element.code}} </td>
+                </ng-container>
+    
+                <!-- RiderName Column -->
+                <ng-container matColumnDef="name">
+                  <th mat-header-cell *matHeaderCellDef > name </th>
+                  <td mat-cell *matCellDef="let element">
+                      {{element.Rider_Name}}
+                    <!-- <input matInput style="width: 200px;height: 20px" type="text" [value]="element.name" 
+    
+    [(ngModel)]="element.name"> -->
+  
+                  </td>
+                </ng-container>
+    
+                <!-- shortname Column -->
+                <ng-container matColumnDef="Short_Name">
+                  <th mat-header-cell *matHeaderCellDef> Short_Name </th>
+                  <td mat-cell *matCellDef="let element">
+                    <!-- <input matInput style="width: 100px;height: 20px" type="text" [value]="element.sName" 
+    
+    [(ngModel)]="element.sName"> -->
+    {{element.Short_Name}}
+                  </td>
+                </ng-container>
+    
+                <!-- calculation Column -->
+    
+                <ng-container matColumnDef="calculation">
+                  <th mat-header-cell *matHeaderCellDef> calculation </th>
+                  <td mat-cell *matCellDef="let element">
+                    <input matInput style="width: 100px;height: 20px"  [(ngModel)]="selectedCustomer.calculation" type="text" [value]="element.calculation" 
+    
+    [(ngModel)]="element.calculation" >
+                  </td>
+                </ng-container>
+  
+     
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="$event.stopPropagation()" 
+                (click)="selection.select(row)">
+                </tr>
+              </table>
+              <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </div><br> <br>
+  
+              
+        <!-- view all products table -->
+  
+        <div class="example-container mat-elevation-z8">
+          <table mat-table [dataSource]="dataSources" style="padding: 2px">
+  
+    <!-- <table mat-table [dataSource]="dataSources" class="mat-elevation-z8" style="padding: 20px"> -->
+  
+              <!--- Note that these columns can be defined in any order.
+                  The actual rendered columns are set as a property on the row definition" -->
+  
+              <!-- id Column -->
+              <ng-container matColumnDef="productId" sticky>
+                <th mat-header-cell *matHeaderCellDef class="hideId"> productId</th>
+                <td mat-cell *matCellDef="let element" class="hideId1"> {{element.productId}} </td>
+              </ng-container>
+  
+              <!-- code Column -->
+              <ng-container matColumnDef="code">
+                <th mat-header-cell *matHeaderCellDef class="hidecode"> code</th>
+                <td mat-cell *matCellDef="let element" class="hidecode1"> {{element.code}} </td>
+              </ng-container>
+  
+              <!-- product_Name Column -->
+              <ng-container matColumnDef="name">
+                <th  mat-header-cell *matHeaderCellDef> name</th>
+                <td mat-cell  *matCellDef="let element"> {{element.name}} </td>
+              </ng-container>
+  
+              <!-- short_Name Column -->
+              <ng-container matColumnDef="sName">
+                <th mat-header-cell *matHeaderCellDef> short_Name</th>
+                <td mat-cell *matCellDef="let element"> {{element.sName}} </td>
+              </ng-container>
+  
+              <!-- max_age  column -->
+              <ng-container matColumnDef="maxAge">
+                <th mat-header-cell *matHeaderCellDef >max_age</th>
+                <td mat-cell *matCellDef="let element"> {{element.maxAge}} </td>
+              </ng-container>
+  
+              <!-- min age column -->
+              <ng-container matColumnDef="minAge">
+                <th mat-header-cell *matHeaderCellDef>min_age</th>
+                <td mat-cell *matCellDef="let element"> {{element.minAge}} </td>
+              </ng-container>
+  
+              <!-- calculation column -->
+              <ng-container matColumnDef="calculation">
+                <th mat-header-cell *matHeaderCellDef>calculation</th>
+                <td mat-cell *matCellDef="let element"  > {{element.calculation}} </td>
+              </ng-container>
+            
+              <!-- create by column -->
+              <ng-container matColumnDef="createBy">
+                <th mat-header-cell *matHeaderCellDef  class="createBy" style="display: none">createBy</th>
+                <td mat-cell *matCellDef="let element"  class="create1" style="display: none"> {{element.createBy}} </td>
+              </ng-container>
+  
+               <!-- create Date column -->
+               <ng-container matColumnDef="createDate">
+                <th mat-header-cell *matHeaderCellDef  class="date" style="display: none">createDate</th>
+                <td mat-cell *matCellDef="let element"  class="date1" style="display: none"> {{element.createDate}} </td>
+              </ng-container>
+  
+  
+  
+              <!-- remove colmn -->
+              <ng-container matColumnDef="remove">
+                <th mat-header-cell *matHeaderCellDef > Remove </th>
+                <td mat-cell *matCellDef="let element;let i = index;" ><button  mat-icon-button (click)="deleteSubmit(element)" >
+                  <mat-icon>delete_outline</mat-icon>
+                </button>   </td>
+              </ng-container>
+  
+              <!-- edit column -->
+              <ng-container matColumnDef="edit" stickyEnd>
+                <th mat-header-cell *matHeaderCellDef> Edit </th>
+                <td mat-cell *matCellDef="let element;let i = index;" ><button  mat-icon-button (click)="updateSubmit(element)">
+                  <mat-icon>edit</mat-icon>
+                </button>   </td>
+              </ng-container>
+  
+  
+             
+              
+  
+              <tr mat-header-row *matHeaderRowDef="displayedColumn; sticky: true"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumn; let i=index;" (click)="selectRow(row)"
+              [class.alertactive]="i == selectRow"></tr>
+            </table>
+            <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+            </div><br> <br>
+  
+             <!-- string param table -->
+        
+             <div class="mat-elevation-z8">
+              <table mat-table [dataSource]="dataSource1" style="padding: 10px">
+            <!-- <table mat-table [dataSource]="dataSource1" class="mat-elevation-z8"  style="padding: 10px"> -->
+  
+              <!-- Checkbox Column -->
+              <!-- <ng-container matColumnDef="select">
+                <th mat-header-cell *matHeaderCellDef>
+                  <mat-checkbox (change)="$event ? masterToggle1() : null" [checked]="selection1.hasValue() && isAllSelected1()" 
+  
+  [indeterminate]="selection1.hasValue() && !isAllSelected1()">
+                  </mat-checkbox>
+                </th>
+                <td mat-cell *matCellDef="let row">
+                  <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection1.toggle(row) : null" 
+  
+  [checked]="selection1.isSelected(row)">
+                  </mat-checkbox>
+                </td>
+              </ng-container> -->
+  
+              
+              <ng-container matColumnDef="checked">
+                <th mat-header-cell *matHeaderCellDef>Check</th>
+                <td mat-cell *matCellDef="let element"> 
+                  <mat-checkbox [checked]="element.checked" (click)="selectedItemN(element)"></mat-checkbox>
+                </td>
+              </ng-container>
+  
+              <!-- id Column -->
+              <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef style="display: none"> id </th>
+                <td mat-cell *matCellDef="let element" style="display: none"> {{element.id}} </td>
+              </ng-container>
+  
+              <!-- name Column -->
+              <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef> Name </th>
+                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+              </ng-container>
+  
+              <!-- shortName Column -->
+              <ng-container matColumnDef="sName">
+                <th mat-header-cell *matHeaderCellDef> short_Name </th>
+                <td mat-cell *matCellDef="let element"> {{element.sName}} </td>
+              </ng-container>
+  
+              <tr mat-header-row *matHeaderRowDef="displayedColumns1"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns1;" (click)="$event.stopPropagation()" >
+              </tr>
+            </table>
+            <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+            </div><br> <br>
+  
+             <!-- Number param table -->
+  
+        
+             <div class="mat-elevation-z8">
+              <table mat-table [dataSource]="dataSource2" style="padding: 10x">
+            <!-- <table mat-table [dataSource]="dataSource2" class="mat-elevation-z8" style="padding: 10px"> -->
+  
+              <!-- Checkbox Column -->
+              <!-- <ng-container matColumnDef="select">
+                <th mat-header-cell *matHeaderCellDef>
+                  <mat-checkbox (change)="$event ? masterToggle2() : null" [checked]="selection2.hasValue() && isAllSelected2()" 
+  
+  [indeterminate]="selection2.hasValue() && !isAllSelected2()" >
+                  </mat-checkbox>
+                </th>
+                <td mat-cell *matCellDef="let row">
+                  <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection2.toggle(row) : null" 
+  
+  [checked]="selection2.isSelected(row)"  (click)="selectRow3(row)">
+                  </mat-checkbox>
+                </td>
+              </ng-container> -->
+  
+              
+              <ng-container matColumnDef="checked">
+                <th mat-header-cell *matHeaderCellDef>Check</th>
+                <td mat-cell *matCellDef="let element"> 
+                  <mat-checkbox [checked]="element.checked" (click)="selectedItemS(element)"></mat-checkbox>
+                </td>
+              </ng-container>
+  
+              <!-- id Column -->
+              <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef style="display: none"> id </th>
+                <td mat-cell *matCellDef="let element" style="display: none"> {{element.id}} </td>
+              </ng-container>
+  
+              <!-- name Column -->
+              <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef> Name </th>
+                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+              </ng-container>
+  
+              <!-- shortName Column -->
+              <ng-container matColumnDef="sName">
+                <th mat-header-cell *matHeaderCellDef> short_Name </th>
+                <td mat-cell *matCellDef="let element"> {{element.sName}} </td>
+              </ng-container>
+  
+              <tr mat-header-row *matHeaderRowDef="displayedColumns2"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns2;" (click)="$event.stopPropagation()">
+              </tr>
+            </table>
+            <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+            </div>
+      </mat-card-content>
+              
+              
+            </mat-card>
+       
+      </mat-card-content>
+  
+    </mat-card>
+  </div>
+  </div>
+  </mat-card>

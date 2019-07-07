@@ -1,0 +1,22 @@
+table {
+    width: 100%;
+   
+  }
+  
+  
+  .hideId{
+    display: none;
+  }
+  
+  
+   
+  
+  .mat-elevation-z8{
+  overflow: initial;
+  max-height: 80%;
+}
+
+.main-card{
+  margin-top: 60px;
+
+}

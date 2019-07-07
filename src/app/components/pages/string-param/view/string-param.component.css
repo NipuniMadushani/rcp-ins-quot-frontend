@@ -1,0 +1,46 @@
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td, th {
+  width: 25%;
+}
+
+.main-card{
+  height: 93%;
+}
+
+.sortable tr {
+    cursor: pointer;
+}
+
+.hideId{
+  display: none;
+}
+
+.mat-elevation-z8{
+  overflow: initial;
+  max-height: 80%;
+}
+
+.mat-row:hover{
+  cursor:pointer;
+  background-color:lightblue;
+}
+
+/* td:hover{ 
+  cursor:pointer;
+} */
+
+.ed{
+  width: 0%;
+}
+
+
+
+

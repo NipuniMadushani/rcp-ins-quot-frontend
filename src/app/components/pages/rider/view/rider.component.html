@@ -1,0 +1,193 @@
+
+   
+  <div class="container" fxLayout="row" fxLayout.sm="column" 
+  fxLayout.xs="column" 
+  fxLayoutWrap fxLayoutGap="0.5%" 
+  fxLayoutAlign="center">
+    <div fxFlex="50%">
+        
+        <mat-card class="main-card" >
+            <mat-card-header>
+              <mat-card-title>
+                <h3>RiderForm</h3>
+              </mat-card-title>
+            </mat-card-header>
+      
+            <mat-card-content >
+              <mat-card >
+                <div>
+                  <dynamic-form [pageName]="pageName" (submit)="submit($event)">
+                    
+                  </dynamic-form>
+                </div>
+              </mat-card>
+            </mat-card-content>
+      
+          </mat-card>
+    </div>
+
+  <!-- ////////  Product Table-->
+  <div fxFlex="50%">
+
+          <mat-card class="main-card " style="margin-top: 60px" >
+             
+                  <div class="mat-elevation-z8" > 
+           <table mat-table [dataSource]="dataSource" class="mat-elevation-z8"  >
+  
+  
+        <!-- Checkbox Column -->
+         
+        <ng-container matColumnDef="checked">
+          <th mat-header-cell *matHeaderCellDef>Check</th>
+          <td mat-cell *matCellDef="let element"> 
+            <mat-checkbox [checked]="element.checked" (change)="selectedItem(element)"></mat-checkbox>
+          </td>
+        </ng-container>
+        <!-- ID Column -->
+        <ng-container matColumnDef="Id">
+          <th mat-header-cell *matHeaderCellDef style="display: none"> Id</th>
+          <td mat-cell *matCellDef="let element"  style="display: none"> {{element.Id}} </td>
+        </ng-container>
+      
+  <!-- code Colomn -->
+        <ng-container matColumnDef="Code">
+          <th mat-header-cell *matHeaderCellDef style="display: none"> Code </th>
+          <td mat-cell *matCellDef="let element" style="display: none"> {{element.Code}} </td>
+        </ng-container>
+  
+  
+  <!--Product_Name -->
+        <ng-container matColumnDef=" Product_Name">
+          <th mat-header-cell *matHeaderCellDef > Product_Name </th>
+          <td mat-cell *matCellDef="let element">{{element. name}}</td>
+           
+        </ng-container>
+
+        <!-- shortname Column-->
+        <ng-container matColumnDef="Short_Name">
+          <th mat-header-cell *matHeaderCellDef > Short_Name </th>
+          <td mat-cell *matCellDef="let element" >  {{element.sName}}  </td>
+        </ng-container>
+  
+        <!-- Calculation Column -->
+       
+         <ng-container matColumnDef="calculation">
+          <th mat-header-cell *matHeaderCellDef > calculation </th>
+          <td mat-cell *matCellDef="let element"  >{{ element.calculation}}
+  
+        </td>
+
+        </ng-container>
+
+        <!-- maxage column -->
+  
+        <ng-container matColumnDef="  maxAge">
+          <th mat-header-cell *matHeaderCellDef > maxAge </th>
+          <td mat-cell *matCellDef="let element">{{element. maxAge}}</td>
+           
+        </ng-container>
+  
+        <!-- minage column -->
+        <ng-container matColumnDef="minAge">
+          <th mat-header-cell *matHeaderCellDef  >minAge</th>
+          <td mat-cell *matCellDef="let element" > {{element.minAge}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns;sticky: true " ></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="$event.stopPropagation()" 
+        >
+        </tr>
+      </table>
+
+  </div>
+      
+   
+  
+  <!-- view all rider table -->
+  <div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSources" style="margin-top: 40px; padding-left: 20px"  class="mat-elevation-z8" >
+  
+  
+  
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+  
+  <!-- nondisplay id Column -->
+  <ng-container matColumnDef="id" >
+    <th mat-header-cell *matHeaderCellDef class="hideId"  > id </th>
+    <td mat-cell *matCellDef="let element" class="hideId" > {{element.id}} </td>
+  </ng-container>
+  
+  <!-- code Column -->
+  <ng-container matColumnDef="code" >
+    <th mat-header-cell *matHeaderCellDef > code </th>
+    <td mat-cell *matCellDef="let element" 
+    > {{element.code}} </td>
+  </ng-container>
+  
+  <!-- Combination Column -->
+  <ng-container matColumnDef="combination">
+    <th mat-header-cell *matHeaderCellDef> combination </th>
+    <td mat-cell *matCellDef="let element"> {{element.combination}} </td>
+  </ng-container>
+  
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> name </th>
+    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+  </ng-container>
+  
+  <!-- SName Column -->
+  <ng-container matColumnDef="sName">
+    <th mat-header-cell *matHeaderCellDef> Short_Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.sName}} </td>
+  </ng-container>
+  
+  <!-- Delete Column -->
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef> Delete </th>
+    <td mat-cell *matCellDef="let row"> 
+      
+      <button mat-icon-button color="warn"><mat-icon (click)=" onDelete(row.id)">delete_outline</mat-icon>
+      </button>
+       </td>
+  </ng-container>
+  
+  <!-- Edit Column(Fill Textfield) -->
+  <ng-container matColumnDef="Edit" >
+    <th mat-header-cell *matHeaderCellDef >Edit  </th>
+    <td mat-cell *matCellDef="let element;let i = index;" ><button  mat-icon-button  (click)="updateSubmit(element)">
+      <mat-icon>launch</mat-icon>
+    </button>   </td>
+  </ng-container> 
+  
+  
+  
+  <tr mat-header-row *matHeaderRowDef="displayedColumn "></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumn;let i=index" (click)="selectRow(row)" [class.alertactive]="i == selectRow"></tr>
+  
+  </table>
+  
+  <mat-paginator  [length]="100" [pageSize]="5" [pageSizeOptions]="[5,10,15,20,30,50,80]" showFirstLastButtons>
+  </mat-paginator>
+  
+ 
+  </div>
+                
+  </mat-card>
+  
+  </div>
+  
+  </div>
+ 
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

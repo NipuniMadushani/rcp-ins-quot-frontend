@@ -1,0 +1,174 @@
+
+.container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    /* background: #e2e2e2; */
+    
+    background: var(--background);
+
+  }
+  
+  .is-mobile .toolbar {
+    background: var(--dark-ab);
+    position: fixed;
+    /* Make sure the toolbar will stay on top of the content as it scrolls past. */
+    z-index: 2;
+  }
+  
+  h1.app-name {
+    /* background: var(--light-as); */
+    /* color: var(--white-font); */
+    margin-left: 8px;
+    font-size: var(--font-sizetwnty);
+    font-family: var(--font-family);
+  }
+  
+  .sidenav-container {
+    background: var(--dark-ab);
+    /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
+       causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
+    flex: 1;
+  }
+
+  .mat-sidenav{
+    background: var(--light-am);
+      min-width: 200px;
+      /* background: #f0f0f0; */
+  }
+  
+  .is-mobile .sidenav-container {
+    background: var(--light-as);
+    /* When the sidenav is fixed, don't constrain the height of the sidenav container. This allows the
+       `<body>` to be our scrolling element for mobile layouts. */
+    flex: 1 0 auto;
+  }
+
+  .spacer {
+    background: var(--dark-ag);
+    flex: 1 1 auto;
+}
+
+/* .mat-toolbar{
+  background: var(--dark-ab);
+    
+} */
+
+.main-body{
+  background: var(--light-as);
+    min-height: 550px;
+    /* background: #e2e2e2 */
+}
+
+footer{
+  background: var(--light-ak);
+    min-height: 150px;
+    /* background: #3F51B5; */
+}
+
+
+
+  
+
+.contain{
+    
+  max-width:1520px;
+  min-height: 200px;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+ 
+
+}
+
+.text-md-left{
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+.my-5 {
+margin-top: 3rem;
+}
+
+
+.row {
+-ms-flex: 100%;
+flex: 100%;
+max-width: 100%;
+
+display: flex;
+flex-wrap: wrap;
+margin-right: -15px;
+margin-left: -15px;
+}
+
+
+
+.col-sm-4 {
+display: -ms-flexbox;
+-ms-flex: 0 0 25%;
+flex: 0 0 25%;
+max-width: 0 0 25%;
+}
+
+
+
+
+
+h6 {
+font-size: 1rem;
+margin-left: 75px;
+margin-bottom: .5rem;
+font-family: inherit;
+font-weight: 500;
+line-height: 1.2;
+color: inherit;
+margin-top: 1;
+
+
+}
+
+
+p{
+
+  margin-bottom: 1rem;
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+.dark-grey-text {
+
+color: #4f4f4f!important;
+}
+
+a {
+
+cursor: pointer;
+text-decoration: none;
+transition: all .2s ease-in-out;
+font-family:fantasy
+}
+
+.fas fa-home mr-3{
+  font-size: 12px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.text-uppercase {
+  text-transform: uppercase!important;
+  margin-top:30px; 
+  margin-left: -40px;
+ 
+}
+
+

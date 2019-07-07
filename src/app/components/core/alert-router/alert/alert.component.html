@@ -1,0 +1,33 @@
+<div theme style="background-color: var(--dark-ai)">
+  <mat-toolbar class="{{navcolour}}">
+    <img style="max-height: 50px;margin-left: 130px" src="{{navimg}}" alt="">
+    &nbsp;&nbsp;&nbsp;
+    <h1 style="font-size: 40px">{{navmsg}}</h1>
+  </mat-toolbar>
+
+  <div class="{{fristdiv}}" style="background-color: darkgray">
+    <p style="text-align: center;font-size: 25px">{{params.fristvalue}}</p>
+  </div>
+
+  <div class="{{seconddiv}}" style="background-color: darkgray">
+    <p style="text-align: center;font-size: 25px">{{params.secondvalue}}</p>
+  </div>
+  <div style="background-color: transparent">
+    <table>
+      <tr>
+        <td>
+          <div style="margin-top: 15px">
+          <button class="{{btncolour}} {{btnallign}}" mat-raised-button (click)="clearparam()" mat-dialog-close="yes">{{btnval}}</button>
+        </div>
+        </td>
+        <td>
+          <div style="margin-left: 10px;margin-top: 0px" class="{{delbtn}} {{btnallign}}">
+              <button  style="color: white;margin-top: 0px;background-color: rgb(0, 141, 31);font-size: 20px;border-color: transparent;border-radius: 60px" mat-raised-button (click)="clearparam()" mat-dialog-close="no">{{delbtntext}}</button>
+          </div>
+        </td>
+      </tr>
+    </table>
+
+  </div>
+
+</div>

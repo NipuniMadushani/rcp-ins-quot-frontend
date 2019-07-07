@@ -1,0 +1,46 @@
+
+table {
+    width: 100%;
+   
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  td, th {
+    width: 35%;
+  }
+  
+  .main-card{
+    position: relative;
+    height: 100%;
+    width: 90%;
+    
+  }
+  .load{
+    position: relative;
+    top:4%;
+    height: 100%;
+  }
+  .hideId{
+    display: none;
+  }
+  #edit{
+    color: green;
+  }
+  .mat-row:hover {
+    background-color:lightblue;
+    cursor: pointer;
+  }
+  
+@media only screen and (min-width:768px){
+  .container{
+    top: 2%;
+    position: absolute;
+    height: 80%;
+    width: 100%;
+    
+  }
+}

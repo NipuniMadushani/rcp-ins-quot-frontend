@@ -1,0 +1,167 @@
+<div class="container" [class.is-mobile]="mobileQuery.matches">
+  <mat-toolbar style="background-color: var(--dark-a)" class="toolbar">
+    <button mat-icon-button (click)="mainnav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+
+    <h1 class="app-name">Arpico Insurance</h1>
+
+    <span class="spacer"></span>
+
+    <button mat-icon-button (click)="setMenuContent('mail'); optionnav.toggle();">
+      <mat-icon>mail_outline
+      </mat-icon>
+    </button>
+    <button mat-icon-button (click)="setMenuContent('notification'); optionnav.toggle();">
+      <mat-icon>notification_important
+      </mat-icon>
+    </button>
+    <button mat-icon-button (click)="setMenuContent('profile'); optionnav.toggle();">
+      <mat-icon>perm_identity
+      </mat-icon>
+    </button>
+
+  </mat-toolbar>
+  <mat-sidenav-container class="sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+    <mat-sidenav style="background: var(--light-aq)" #mainnav [mode]="mobileQuery.matches ? 'over' : 'side'" [opened]="mobileQuery.matches ? 'false' : 'true'"
+      [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+      <mat-nav-list>
+        <button mat-button [matMenuTriggerFor]="animals">Admin</button>
+
+<mat-menu #animals="matMenu">
+  <button mat-menu-item [matMenuTriggerFor]="qutation">Quotation</button>
+  
+</mat-menu>
+
+<mat-menu #qutation="matMenu">
+
+  <button mat-menu-item routerLink="product" routerLinkActive="active" >Product</button>
+  
+
+  
+  <button mat-menu-item routerLink="rider" routerLinkActive="active">Rider</button>
+
+  <button mat-menu-item routerLink="number" routerLinkActive="active">Number-Param</button>
+  <button mat-menu-item  routerLink="string" routerLinkActive="active">String-param</button>
+</mat-menu>
+
+
+
+
+        
+        
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav style="background-color: var(--light-am)" #optionnav mode="over" [fixedInViewport]="mobileQuery.matches"
+      position="end" fixedTopGap="56">
+      <mat-nav-list>
+        <div *ngIf="menuContent == 'mail'">Mail</div>
+        <div *ngIf="menuContent == 'notification'">notification</div>
+        <div *ngIf="menuContent == 'profile'" style="width: 250px;">
+          <div class="title-fill-background-div">
+            Profile
+          </div>
+          <mat-divider></mat-divider>
+          <div style="padding: 5px;">
+            <button mat-raised-button color="primary">Settings</button>
+            <span class="spacer"></span>
+            <button mat-raised-button color="warn" style="float: right;" (click)="logout()">Logout</button>
+          </div>
+
+          <mat-divider></mat-divider>
+          <br>
+          <mat-accordion style="background-color: var(--dark-ai);color: var(--white-font)">
+            <mat-expansion-panel style="background-color: var(--dark-ai);color: var(--white-font)">
+              <mat-expansion-panel-header style="background-color: var(--dark-ai);color: var(--white-font)">
+                <mat-panel-title style="background-color: var(--dark-ai)" matTooltip="Click For Customize">
+                  Customize Your Interface
+                </mat-panel-title>
+
+              </mat-expansion-panel-header>
+
+              <mat-form-field>
+                <mat-select style="color: var(--white-font)" placeholder="Theme" [(value)]="selectedtheme">
+                  <mat-option (click)="themeToggle()" value="light">Default</mat-option>
+                  <mat-option (click)="themeToggle()" value="dark">Dark</mat-option>
+                  <mat-option (click)="themeToggle()" value="purple">Purple</mat-option>
+                  <mat-option (click)="themeToggle()" value="green">Green</mat-option>
+                  <mat-option (click)="themeToggle()" value="brown">Brown</mat-option>
+                  <mat-option (click)="themeToggle()" value="redd">Red</mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <mat-form-field>
+                <mat-select placeholder="Font Size" [(value)]="selectedfontsize">
+                  <mat-option (click)="fontsToggle()" value="medium">Medium</mat-option>
+                  <mat-option (click)="fontsToggle()" value="small">Small</mat-option>
+                  <mat-option (click)="fontsToggle()" value="large">Large</mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <mat-form-field>
+                <mat-select placeholder="Font Family" [(value)]="selectedfontfamily">
+                  <mat-option (click)="fontFamilyToggle()" value="cursive">Cursive</mat-option>
+                  <mat-option (click)="fontFamilyToggle()" value="fantasy">Fantasy</mat-option>
+                  <mat-option (click)="fontFamilyToggle()" value="monospace">Monospace</mat-option>
+                  <mat-option (click)="fontFamilyToggle()" value="roman">Times New Roman</mat-option>
+                  <mat-option (click)="fontFamilyToggle()" value="sans-serif">Sans-Serif</mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <button mat-raised-button color="accent" (click)="saveCustomization()">Save Customization</button>
+             
+
+            </mat-expansion-panel>
+
+          </mat-accordion>
+
+        </div>
+
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <div class="main-body" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%"
+        fxLayoutAlign="center">
+<!-- <<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+        <router-outlet></router-outlet>
+
+=======
+        <router-outlet></router-outlet>
+>>>>>>> origin/feature/numberparam
+=======
+
+
+        <router-outlet></router-outlet>
+
+
+        
+
+>>>>>>> origin/feature/Product
+======= -->
+
+        <router-outlet></router-outlet>
+
+<!-- >>>>>>> origin/Feature/rider -->
+      </div>
+
+      <footer fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
+        <div fxFlex="30%">
+
+        </div>
+        <div fxFlex="40%">
+
+        </div>
+        <div fxFlex="30%">
+
+        </div>
+
+      </footer>
+
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
